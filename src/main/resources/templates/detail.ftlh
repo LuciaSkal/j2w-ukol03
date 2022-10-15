@@ -11,25 +11,31 @@
     <link rel="icon" type="image/png" href="/images/favicon.png">
 </head>
 <body>
+
 <div class="detail">
     <div class="vizitka">
-        <div class="jmeno">Dita (Přikrylová) Formánková</div>
-        <div class="firma">Czechitas z. s.</div>
+
+        <div class="jmeno">${participant.fullName}</div>
+        <div class="firma">${participant.company}</div>
         <div class="udaje">
             <div class="adresa">
-                <div>Václavské náměstí 837/11</div>
-                <div><span>11000</span> Praha 1</div>
+                <div>${participant.streetAddress}</div>
+                <div><span>${participant.zipCode}</span> ${participant.city}</div>
             </div>
             <div class="kontakty">
-                <div><i class="las la-at"></i> <span>dita@czechitas.cs</span></div>
-                <div><i class="las la-phone-alt"></i> <span>+420 800123456</span></div>
-                <div><i class="las la-globe"></i> <span>www.czechitas.cz</span></div>
+                [#if participant.email?exists]
+                <div><i class="las la-at"></i> <span>${participant.email}</span></div>
+                [/#if]
+                [#if participant.phone?exists]
+                <div><i class="las la-phone-alt"></i> <span>${participant.phone}</span></div>
+                [/#if]
+                <div><i class="las la-globe"></i> <span>${participant.web}</span></div>
             </div>
         </div>
     </div>
 
     <div class="mapa">
-        <iframe style="border:none" src="https://frame.mapy.cz/?q=${"Václavské náměstí 837/11, Praha"?url}" width="100%" height="100%" frameborder="0"></iframe>
+        <iframe style="border:none" src="https://frame.mapy.cz/?q=${participant.getFullAddress()?url}" width="100%" height="100%" frameborder="0"></iframe>
     </div>
 
 </div>
