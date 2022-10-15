@@ -1,15 +1,14 @@
 package cz.czechitas.java2webapps.ukol3.entity;
 
 public class Card {
-    String fullName;
-    String company;
-    String streetAddress;
-    String zipCode;
-
-    String city;
-    String email;
-    String phone;
-    String web;
+    private String fullName;
+    private String company;
+    private String streetAddress;
+    private String zipCode;
+    private String city;
+    private String email;
+    private String phone;
+    private String web;
 
     public String getCity() {
         return city;
